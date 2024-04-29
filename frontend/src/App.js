@@ -8,6 +8,7 @@ import PatientModule from './pages/PatientModule';
 import DoctorsList from './components/DoctorsList';
 import DoctorProfile from './components/DoctorProfile';
 import Vault from './pages/Vault';
+import Footer from './components/Footer';
 
 function App() {
   const { authenticated } = useAuth();
@@ -19,7 +20,7 @@ function App() {
     { path: '/doctor', element: <DoctorModule /> },
     { path: '/patient', element: <PatientModule /> },
     { path: '/doctor-list', element: <DoctorsList /> },
-    { path: '/doctors/book-appointment', element: <DoctorProfile />},
+    { path: '/doctors/book-appointment', element: <DoctorProfile /> },
     { path: '/confirmation', element: <ConfirmationPage /> },
     { path: '/vault', element: <Vault /> },
   ];
@@ -38,6 +39,7 @@ function App() {
             />
           ))}
         </Routes>
+        {authenticated && <Footer />}
       </BrowserRouter>
     </div>
   );
