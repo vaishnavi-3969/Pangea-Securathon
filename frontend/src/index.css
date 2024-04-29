@@ -1,3 +1,5 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Protest+Revolution&family=Truculenta:opsz,wght@12..72,100..900&display=swap') 

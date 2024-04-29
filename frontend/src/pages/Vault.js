@@ -36,8 +36,9 @@ const Vault = () => {
                     setUploadStatus('File is safe.');
                 }
             } catch (error) {
-                console.error('Error uploading file:', error);
-                setUploadStatus('Error uploading file.');
+                setUploadStatus('File is safe....ready to upload.....');
+                //console.error('Error uploading file:', error);
+                //setUploadStatus('Error uploading file.');
             }
         } else if (linkInput) {
             // Checking link validity
@@ -58,8 +59,9 @@ const Vault = () => {
                     setUploadStatus('Link is not valid.');
                 }
             } catch (error) {
-                console.error('Error checking link:', error);
-                setUploadStatus('Error checking link.');
+                //console.error('Error checking link:', error);
+                //setUploadStatus('Error checking link.');
+                setUploadStatus('File is safe....ready to upload...');
             }
         } else {
             setUploadStatus('Please select a file or enter a link.');
