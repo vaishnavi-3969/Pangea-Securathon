@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import { About, Home, Landing, Profile } from './pages';
+import { About, ConfirmationPage, Home, Landing, Profile } from './pages';
 import { useAuth } from "@pangeacyber/react-auth";
 import Navbar from './components/Navbar';
 import DoctorModule from './pages/DoctorModule';
@@ -18,7 +18,8 @@ function App() {
     { path: '/doctor', element: <DoctorModule /> },
     { path: '/patient', element: <PatientModule /> },
     { path: '/doctor-list', element: <DoctorsList /> },
-    { path: '/doctors/book-appointment', element: <DoctorProfile />}
+    { path: '/doctors/book-appointment', element: <DoctorProfile />},
+    { path: '/confirmation', element: <ConfirmationPage /> },
   ];
 
   return (
