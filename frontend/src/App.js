@@ -3,6 +3,7 @@ import './App.css';
 import { About, Home, Landing, Profile } from './pages';
 import { useAuth } from "@pangeacyber/react-auth";
 import Navbar from './components/Navbar';
+import DoctorModule from './pages/DoctorModule';
 
 function App() {
   const { authenticated } = useAuth();
@@ -11,6 +12,7 @@ function App() {
     { path: '/', element: authenticated ? <Home /> : <Landing /> },
     { path: '/about', element: <About /> },
     { path: '/profile', element: <Profile /> },
+    { path: '/doctor', element: <DoctorModule /> },
 
   ];
 
