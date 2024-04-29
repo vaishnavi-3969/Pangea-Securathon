@@ -21,6 +21,14 @@ const Navbar = () => {
           <Link to="/appointments" className="text-white hover:text-gray-300">
             Appointments
           </Link>
+          <Link to="/profile">
+            <span className="text-white ml-4">{user.email}</span>
+          </Link>
+          <button
+            onClick={logout}
+            className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full ml-4"
+          >Logout
+          </button>
         </div>
       </div>
     </nav>
