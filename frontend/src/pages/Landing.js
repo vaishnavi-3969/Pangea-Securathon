@@ -8,7 +8,7 @@ const Landing = () => {
     <div className="bg-gradient-to-br from-blue-400 to-purple-500 min-h-screen flex flex-col justify-center items-center">
       <header className="text-center">
         <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-          Welcome to Pangea Telemedicine
+          Welcome to Pangea TeleGuard
         </h1>
         <p className="text-lg sm:text-xl text-gray-200 mb-8">
           Your trusted platform for secure and confidential medical consultations.
