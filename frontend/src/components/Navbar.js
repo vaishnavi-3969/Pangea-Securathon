@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const { authenticated, user, login, logout } = useAuth();
+  const {  user, logout } = useAuth();
 
   return (
     <nav className="bg-gray-800 p-4">
