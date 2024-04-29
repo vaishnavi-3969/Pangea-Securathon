@@ -1,31 +1,51 @@
-// NearbyHospitals.js
 import React, { useEffect, useState } from 'react';
 
 const NearbyHospitals = () => {
     const [hospitals, setHospitals] = useState([]);
+    const [userLocation, setUserLocation] = useState({ lat: null, lng: null });
 
     useEffect(() => {
-        const loadScript = () => {
-            const script = document.createElement('script');
-            script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCb9fb_lhkKM48QagBcfX8uqIBbtlLQJ_E&libraries=places`;
-            script.onload = initMap;
-            document.head.appendChild(script);
-        };
-
-        loadScript();
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    setUserLocation({
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude,
+                    });
+                },
+                (error) => {
+                    console.error('Error getting user location:', error);
+                }
+            );
+        } else {
+            console.error('Geolocation is not supported by this browser.');
+        }
     }, []);
+
+    useEffect(() => {
+        if (userLocation.lat && userLocation.lng) {
+            const loadScript = () => {
+                const script = document.createElement('script');
+                script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCb9fb_lhkKM48QagBcfX8uqIBbtlLQJ_E&libraries=places`;
+                script.onload = initMap;
+                document.head.appendChild(script);
+            };
+
+            loadScript();
+        }
+    }, [userLocation]);
 
     const initMap = () => {
         const map = new window.google.maps.Map(document.getElementById('map'), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
+            center: userLocation,
+            zoom: 15,
         });
 
         const service = new window.google.maps.places.PlacesService(map);
         service.nearbySearch(
             {
-                location: { lat: -34.397, lng: 150.644 },
-                radius: 100000, // 100 km in meters
+                location: userLocation,
+                radius: 10000, // 10 km in meters
                 type: 'hospital',
             },
             (results, status) => {
