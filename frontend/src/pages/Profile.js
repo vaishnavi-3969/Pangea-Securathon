@@ -6,38 +6,10 @@ const Profile = () => {
     const [firstName, setFirstName] = useState(user.profile?.first_name || "");
     const [lastName, setLastName] = useState(user.profile?.last_name || "");
     const [userType, setUserType] = useState(user.profile?.user_type || "");
-    const [additionalInfo, setAdditionalInfo] = useState("");
 
     const handleSaveChanges = () => {
+        // Here you can implement the logic to save changes to Firebase
         console.log("Changes saved!");
-    };
-
-    const renderAdditionalFields = () => {
-        if (userType === "doctor") {
-            return (
-                <div className="mb-4">
-                    <label className="text-gray-600 font-semibold">License Number:</label>
-                    <input
-                        type="text"
-                        value={additionalInfo}
-                        onChange={(e) => setAdditionalInfo(e.target.value)}
-                        className="form-input mt-1 block w-full rounded-md border-gray-300"
-                    />
-                </div>
-            );
-        } else if (userType === "patient") {
-            return (
-                <div className="mb-4">
-                    <label className="text-gray-600 font-semibold">Medical History:</label>
-                    <textarea
-                        value={additionalInfo}
-                        onChange={(e) => setAdditionalInfo(e.target.value)}
-                        className="form-textarea mt-1 block w-full rounded-md border-gray-300"
-                        rows="4"
-                    ></textarea>
-                </div>
-            );
-        }
     };
 
     return (
@@ -82,7 +54,6 @@ const Profile = () => {
                         <option value="patient">Patient</option>
                     </select>
                 </div>
-                {renderAdditionalFields()}
                 <button
                     onClick={handleSaveChanges}
                     className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none"
