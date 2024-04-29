@@ -7,6 +7,7 @@ import DoctorModule from './pages/DoctorModule';
 import PatientModule from './pages/PatientModule';
 import DoctorsList from './components/DoctorsList';
 import DoctorProfile from './components/DoctorProfile';
+import Vault from './pages/Vault';
 
 function App() {
   const { authenticated } = useAuth();
@@ -20,6 +21,7 @@ function App() {
     { path: '/doctor-list', element: <DoctorsList /> },
     { path: '/doctors/book-appointment', element: <DoctorProfile />},
     { path: '/confirmation', element: <ConfirmationPage /> },
+    { path: '/vault', element: <Vault /> },
   ];
 
   return (
