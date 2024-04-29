@@ -1,62 +1,42 @@
 import React from 'react';
+import { useAuth } from "@pangeacyber/react-auth";
 
 const Landing = () => {
+  const { login } = useAuth();
+
   return (
-    <>
-      {/* Hero Section */}
-      <div className="bg-gradient-to-r from-blue-200 to-purple-200 py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-              Welcome to Pangea Teleguard
-            </h1>
-            <p className="text-lg sm:text-xl text-gray-800 mb-8">
-              Your secure telemedicine solution for confidential consultations.
-            </p>
-            <div className="flex justify-center">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div className="bg-gradient-to-br from-blue-400 to-purple-500 min-h-screen flex flex-col justify-center items-center">
+      <header className="text-center">
+        <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          Welcome to Pangea Telemedicine
+        </h1>
+        <p className="text-lg sm:text-xl text-gray-200 mb-8">
+          Your trusted platform for secure and confidential medical consultations.
+        </p>
 
-      {/* Features Section */}
-      <div className="bg-gray-100 py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {/* Feature Card */}
-            <div className="bg-white rounded-lg p-6 flex items-center space-x-4 shadow-lg">
-              <div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">Secure Consultations</h2>
-                <p className="text-gray-600">Ensure confidentiality with end-to-end encryption.</p>
-              </div>
-            </div>
-            {/* Add similar feature cards for other features */}
-          </div>
-        </div>
-      </div>
+        <button
+          className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out"
+          onClick={login}>Login</button>
 
-      {/* Call to Action Section */}
-      <div className="bg-purple-100 py-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
-              Ready to experience secure telemedicine?
-            </h2>
-            <p className="text-lg text-gray-800 mb-8">
-              Sign up now to start connecting with healthcare providers securely.
-            </p>
-            <div className="flex justify-center">
-              <button className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300 ease-in-out">
-                Sign Up
-              </button>
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
+          <div className="bg-white rounded-lg p-6 flex flex-col items-center justify-center shadow-lg">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">Secure Consultations</h2>
+            <p className="text-gray-600 text-center">Ensure confidentiality with end-to-end encryption.</p>
+          </div>
+          <div className="bg-white rounded-lg p-6 flex flex-col items-center justify-center shadow-lg">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">24/7 Availability</h2>
+            <p className="text-gray-600 text-center">Access healthcare professionals anytime, anywhere.</p>
+          </div>
+          <div className="bg-white rounded-lg p-6 flex flex-col items-center justify-center shadow-lg">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">User-Friendly Interface</h2>
+            <p className="text-gray-600 text-center">Easy-to-use platform for seamless consultations.</p>
           </div>
         </div>
-      </div>
-    </>
+        <div className="absolute bottom-0 mb-4">
+          <p className="text-white text-sm">&copy; 2024 Pangea Telemedicine. All rights reserved.</p>
+        </div>
+      </header>
+    </div>
   );
 };
 
