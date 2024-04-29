@@ -8,7 +8,6 @@ const Profile = () => {
     const [userType, setUserType] = useState(user.profile?.user_type || "");
 
     const handleSaveChanges = () => {
-        // Here you can implement the logic to save changes to Firebase
         console.log("Changes saved!");
     };
 
