@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const NearbyHospitals = () => {
     const [hospitals, setHospitals] = useState([]);
@@ -57,17 +58,21 @@ const NearbyHospitals = () => {
     };
 
     return (
-        <div className="mb-8">
-            <h2 className="text-xl font-semibold mb-4">Nearby Hospitals</h2>
-            <div id="map" style={{ width: '100%', height: '400px' }}></div>
-            <ul>
-                {hospitals.map((hospital, index) => (
-                    <li key={index} className="mb-2">
-                        <div className="font-semibold">{hospital.name}</div>
-                        <div>{hospital.vicinity}</div>
-                    </li>
-                ))}
-            </ul>
+        <div className="bg-gray-100 py-8 px-4">
+            <div className="max-w-3xl mx-auto">
+                <h2 className="text-3xl font-semibold mb-6">Nearby Hospitals</h2>
+                <div id="map" className="mb-8 rounded-lg overflow-hidden" style={{ width: '100%', height: '400px' }}></div>
+                <Link to="/doctor-list">
+                    <div className="space-y-8">
+                        {hospitals.map((hospital, index) => (
+                            <div key={index} className="bg-white p-6 rounded-lg shadow-md">
+                                <h3 className="text-xl font-semibold mb-2">{hospital.name}</h3>
+                                <p>{hospital.vicinity}</p>
+                            </div>
+                        ))}
+                    </div>
+                </Link>
+            </div>
         </div>
     );
 };

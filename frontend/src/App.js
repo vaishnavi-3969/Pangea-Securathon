@@ -5,6 +5,7 @@ import { useAuth } from "@pangeacyber/react-auth";
 import Navbar from './components/Navbar';
 import DoctorModule from './pages/DoctorModule';
 import PatientModule from './pages/PatientModule';
+import DoctorsList from './components/DoctorsList';
 
 function App() {
   const { authenticated } = useAuth();
@@ -15,7 +16,7 @@ function App() {
     { path: '/profile', element: <Profile /> },
     { path: '/doctor', element: <DoctorModule /> },
     { path: '/patient', element: <PatientModule /> },
-
+    { path: '/doctor-list', element: <DoctorsList /> },
   ];
 
   return (
