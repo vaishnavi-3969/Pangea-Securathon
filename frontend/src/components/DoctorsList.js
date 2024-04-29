@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const DoctorsList = () => {
     const [doctors, setDoctors] = useState([]);
@@ -10,9 +11,9 @@ const DoctorsList = () => {
             try {
                 const response = await fetch('https://randomuser.me/api/?results=20&nat=us&inc=name,email,location,phone,picture');
                 const data = await response.json();
-                const updatedDoctors = data.results.map(doctor => ({
+                const updatedDoctors = data.results.map((doctor, index) => ({
                     ...doctor,
-                    type: doctorTypes[Math.floor(Math.random() * doctorTypes.length)]
+                    type: doctorTypes[index % doctorTypes.length]
                 }));
                 setDoctors(updatedDoctors);
                 setIsLoading(false);
@@ -51,6 +52,14 @@ const DoctorsList = () => {
                                 <div>
                                     <p className="text-gray-600">{doctor.location.street.number} {doctor.location.street.name}, {doctor.location.city}</p>
                                 </div>
+                                <Link
+                                    to={{
+                                        pathname: `/doctors/book-appointment`,
+                                    }}
+                                    className="text-blue-500 hover:underline"
+                                >
+                                    View Profile
+                                </Link>
                             </div>
                         ))}
                     </div>

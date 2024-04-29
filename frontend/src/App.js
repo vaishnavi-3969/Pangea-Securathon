@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import DoctorModule from './pages/DoctorModule';
 import PatientModule from './pages/PatientModule';
 import DoctorsList from './components/DoctorsList';
+import DoctorProfile from './components/DoctorProfile';
 
 function App() {
   const { authenticated } = useAuth();
@@ -17,6 +18,7 @@ function App() {
     { path: '/doctor', element: <DoctorModule /> },
     { path: '/patient', element: <PatientModule /> },
     { path: '/doctor-list', element: <DoctorsList /> },
+    { path: '/doctors/book-appointment', element: <DoctorProfile />}
   ];
 
   return (
